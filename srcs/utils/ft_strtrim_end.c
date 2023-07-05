@@ -2,12 +2,14 @@
 
 void ft_strtrim_end(char *str)
 {
-    size_t idx;
+    int idx;
 
     idx = ft_strlen(str);
     if (idx > 0)
         idx--;
-    while ((str[idx] == ' ' || str[idx] == '\n') && idx != 0)
+    else
+        return ;
+    while (-1 < idx && (str[idx] == ' ' || str[idx] == '\n'))
         idx--;
     str[idx + 1] = 0;
 }

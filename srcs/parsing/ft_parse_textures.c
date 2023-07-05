@@ -10,7 +10,7 @@ static t_direction  ft_is_direction_valid(char *line)
         return (EA);
     if (ft_strcmp(line, "WE"))
         return (WE);
-    return (NONE);
+    return (NAS);
 }
 
 t_bool  ft_parse_texture_line(char *line, t_data *data, size_t index)
@@ -20,7 +20,7 @@ t_bool  ft_parse_texture_line(char *line, t_data *data, size_t index)
 
     str_index = 0;
     direction = ft_is_direction_valid(line);
-    if (direction == NONE)
+    if (direction == NAD)
 		return (FALSE);
 	str_index += 2 + ft_skip_whitespaces(line + 2);
     ft_strtrim_end(line + str_index);

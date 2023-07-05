@@ -40,7 +40,7 @@ typedef enum e_err
 
 typedef enum e_direction
 {	
-	NONE = 0,
+	NAD = 0,
 	NO,
 	SO,
 	EA,
@@ -64,15 +64,15 @@ typedef struct s_texture
 
 typedef struct s_color
 {
-	t_side			side;
-	unsigned char	red;
-	unsigned char	green;
-	unsigned char	blue;
+	t_side	side;
+	t_u1	rgb[3];
 }	t_color;
 
 typedef	struct s_map
 {
 	char		**map_data;
+	size_t		width;
+	size_t		height;
 }	t_map;
 
 typedef struct s_data
@@ -95,6 +95,7 @@ void 		ft_strtrim_end(char *str);
 void    	ft_bzero(void *data, size_t n);
 t_bool		ft_skip_newlines(int fd, char **current_line);
 t_bool		ft_parse_u1(char *number, t_u1 *out);
+size_t  	ft_strfind(char *str, char c);
 
 //		INITIALIZATION
 
@@ -107,6 +108,7 @@ t_bool		ft_is_map_name_valid(char *map_name);
 t_bool		ft_parse_map(int fd, t_data *data);
 t_bool		ft_parse_textures(int fd, t_data *data);
 t_bool		ft_parse_colors(int fd, t_data *data, char *line);
+t_bool		ft_parse_minimap(int fd, t_data *data, char *line);
 
 //		DESTRUCTION
 

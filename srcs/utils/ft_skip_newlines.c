@@ -17,9 +17,13 @@ t_bool  ft_skip_newlines(int fd, char **current_line)
         if ((*current_line)[0] != '\n')
         {
             if (index == 0)
+            {
+                free(*current_line);
                 return (FALSE);
+            }
             return (TRUE);
         }
         index++;
+        free(*current_line);
     }
 }
