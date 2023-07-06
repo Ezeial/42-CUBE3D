@@ -57,11 +57,15 @@ t_bool			ft_parse_colors(int fd, t_data *data, char *line)
 {
 	t_bool ret;
 
+	if (!line)
+		return (FALSE);
 	ret = ft_parse_color_line(line, data, 0); 
 	free(line);
 	if (ret == FALSE)
 		return (FALSE);
 	line = get_next_line(fd);
+	if (!line)
+		return (FALSE);
 	ret = ft_parse_color_line(line, data, 1); 
 	free(line);
 	if (ret == FALSE)

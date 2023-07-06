@@ -9,7 +9,7 @@ SRCS			= 	$(MAIN) \
 					srcs/gnl/get_next_line.c srcs/gnl/get_next_line_utils.c \
 					srcs/utils/ft_strlen.c srcs/utils/ft_strcmp.c srcs/utils/ft_skip_whitespaces.c srcs/utils/ft_error.c srcs/utils/ft_strtrim_end.c srcs/utils/ft_bzero.c srcs/utils/ft_skip_newlines.c srcs/utils/ft_parse_u1.c srcs/utils/ft_strfind.c \
 					srcs/initialization/ft_init.c \
-					srcs/parsing/ft_parse.c srcs/parsing/ft_is_map_name_valid.c srcs/parsing/ft_parse_map.c srcs/parsing/ft_parse_textures.c srcs/parsing/ft_parse_colors.c srcs/parsing/ft_parse_minimap.c \
+					srcs/parsing/ft_parse.c srcs/parsing/ft_is_map_name_valid.c srcs/parsing/ft_parse_map.c srcs/parsing/ft_parse_textures.c srcs/parsing/ft_parse_colors.c srcs/parsing/ft_parse_minimap.c srcs/parsing/ft_validate_character.c srcs/parsing/ft_is_map_closed.c srcs/parsing/ft_validate_datas.c \
 					srcs/destruction/ft_destroy.c
 
 #-----------------------------------------------#
@@ -18,7 +18,7 @@ SRCS			= 	$(MAIN) \
 
 CC				=	gcc
 RM				=	rm -rf
-CFLAGS			=	-fsanitize=address # -Wall -Wextra -Werror -O3
+CFLAGS			=	-fsanitize=address  # -Wall -Wextra # -Werror -O3
 
 HEADERS			=	includes/cube3d.h
 

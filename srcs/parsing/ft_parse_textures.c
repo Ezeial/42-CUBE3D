@@ -40,6 +40,8 @@ t_bool  ft_parse_textures(int fd, t_data *data)
     while (index < 4)
     {
         line = get_next_line(fd);
+        if (!line)
+            return (FALSE);
         ret = ft_parse_texture_line(line, data, index);
         free(line);
         if (ret == FALSE)

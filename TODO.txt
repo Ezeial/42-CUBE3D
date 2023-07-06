@@ -1,1 +1,5 @@
 [ ] verif le endwith (.cub avec acub) est censer donenr true alors que c faux
+[ ] valider texture (1 de chaque), color (1 de chaque) et la mmap
+[ ] empty map -> SEGFAYT
+[ ] potentiellement gerer le fait que dans les deux ordre les 2 premiere etape du parsing doient fonctionner
+[ ] FLOODFILL -> remplire recursivement les 0 par des X puis verifier si un X touche autre chose qun X ou quun 1 -> si oui error si non gg

@@ -17,7 +17,7 @@
 
 #define TEXTURE_WIDTH 50
 #define TEXTURE_HEIGHT 50
-
+#define FLOODFILL_CHAR '.'
 //  TYPEDEF
 
 typedef unsigned char t_u1;
@@ -75,9 +75,17 @@ typedef	struct s_map
 	size_t		height;
 }	t_map;
 
+typedef struct s_character
+{
+	size_t		start_x;
+	size_t		start_y;
+	t_direction	start_dir;
+}	t_character;
+
 typedef struct s_data
 {
 	t_map		map;
+	t_character	character;
 	t_texture	textures[4];
 	t_color		colors[2];
 	void		*mlx;
@@ -109,6 +117,9 @@ t_bool		ft_parse_map(int fd, t_data *data);
 t_bool		ft_parse_textures(int fd, t_data *data);
 t_bool		ft_parse_colors(int fd, t_data *data, char *line);
 t_bool		ft_parse_minimap(int fd, t_data *data, char *line);
+t_bool		ft_validate_character(t_data *data);
+t_bool  	ft_is_map_closed(t_data *data);
+t_bool		ft_validate_datas(t_data *data);
 
 //		DESTRUCTION
 
