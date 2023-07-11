@@ -15,6 +15,9 @@
 
 //	DEFINE
 
+#define WINDOW_WIDTH 1920
+#define WINDOW_HEIGHT 1080
+#define WINDOW_TITLE "cub3d"
 #define TEXTURE_WIDTH 50
 #define TEXTURE_HEIGHT 50
 #define FLOODFILL_CHAR '.'
@@ -36,7 +39,8 @@ typedef enum e_err
     WRONG_ARG_NUMBER,
 	WRONG_MAP_NAME,
 	OPEN_ERROR,
-	MAP_ERROR
+	MAP_ERROR,
+	CREATE_WIN_ERROR
 }	t_err;
 
 typedef enum e_direction
@@ -55,10 +59,20 @@ typedef enum e_side
 	F
 }	t_side;
 
+typedef struct s_image {
+	void		*img;
+	char		*addr;
+	int			width;
+	int			height;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+}				t_image;
+
 typedef struct s_texture
 {
 	t_direction direction;
-	void		*texture_img;
+	t_image		image;
 	int			width;
 	int			height;
 }	t_texture;
@@ -90,6 +104,8 @@ typedef struct s_data
 	t_texture	textures[4];
 	t_color		colors[2];
 	void		*mlx;
+	void		*mlx_win;
+	t_image		win_buff;
 }	t_data;
 
 //  PROTOTYPE
@@ -106,9 +122,18 @@ t_bool		ft_skip_newlines(int fd, char **current_line);
 t_bool		ft_parse_u1(char *number, t_u1 *out);
 size_t  	ft_strfind(char *str, char c);
 
+//		MLX_API
+
+t_image		new_image(void *mlx, size_t width, size_t height);
+t_image 	new_xpm_texture(void *mlx, char *path_to_xml);
+int			*get_pixel_on_image(t_image *image, int x, int y);
+void		put_image_to_buffer(t_image *image, t_image *buffer, int x, int y);
+void		put_pixel_to_image(t_image *image, int x, int y, int color);
+
 //		INITIALIZATION
 
 t_err		ft_init(t_data *data);
+t_err   	ft_create_window(t_data *data);
 
 //      PARSING
 
@@ -121,6 +146,11 @@ t_bool		ft_parse_minimap(int fd, t_data *data, char *line);
 t_bool		ft_validate_character(t_data *data);
 t_bool  	ft_is_map_closed(t_data *data);
 t_bool		ft_validate_datas(t_data *data);
+
+//		LOOP
+
+void		ft_hook_loop(t_data *data);
+void		ft_loop(t_data *data);
 
 //		DESTRUCTION
 

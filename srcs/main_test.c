@@ -3,8 +3,8 @@
 
 void ft_parse_u1_t(char *nb, t_u1 expected, t_bool success)
 {
-    t_u1 out;
-    t_bool ret;
+    t_u1    out;
+    t_bool  ret;
 
     ret = ft_parse_u1(nb, &out);
     if (success)

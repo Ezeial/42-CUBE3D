@@ -7,10 +7,10 @@ static void ft_destroy_textures(t_data *data)
     i = 0;
     while (i < 4)
     {
-        if (data->textures[i].texture_img)
+        if (data->textures[i].image.img)
         {
-            mlx_destroy_image(data->mlx, data->textures[i].texture_img);
-            data->textures[i].texture_img = NULL;
+            mlx_destroy_image(data->mlx, data->textures[i].image.img);
+            data->textures[i].image.img = NULL;
         }
         i++;
     }
@@ -34,7 +34,17 @@ static void ft_destroy_minimap(t_data *data)
 }
 
 static void ft_destroy_mlx(t_data *data)
-{
+{   
+    if (data->mlx_win)
+    {
+        mlx_destroy_window(data->mlx, data->mlx_win);
+        data->mlx_win = NULL;
+    }
+    if (data->win_buff.img)
+    {
+        mlx_destroy_image(data->mlx, data->win_buff.img);
+        data->win_buff.img = NULL;
+    }
     if (data->mlx)
     {
         mlx_destroy_display(data->mlx);

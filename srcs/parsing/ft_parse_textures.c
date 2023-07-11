@@ -25,8 +25,8 @@ t_bool  ft_parse_texture_line(char *line, t_data *data, size_t index)
 	str_index += 2 + ft_skip_whitespaces(line + 2);
     ft_strtrim_end(line + str_index);
     data->textures[index].direction = direction;
-    data->textures[index].texture_img = mlx_xpm_file_to_image(data->mlx, (line + str_index), &(data->textures[index].width), &(data->textures[index].height));
-    if (!(data->textures[index].texture_img))
+    data->textures[index].image = new_xpm_texture(data->mlx, (line + str_index));
+    if (!(data->textures[index].image.img))
         return (FALSE); 
 }
 

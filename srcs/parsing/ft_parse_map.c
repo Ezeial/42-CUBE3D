@@ -13,7 +13,7 @@ t_bool  ft_parse_map(int fd, t_data *data)
     if (!ft_skip_newlines(fd, &current_line))
 		return (FALSE);
 	if (!ft_parse_minimap(fd, data, current_line))
-		return (FALSE);	
+		return (FALSE);
 	if (!ft_validate_datas(data))
 		return (FALSE);
 	return (TRUE);
