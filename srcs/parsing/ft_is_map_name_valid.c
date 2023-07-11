@@ -2,14 +2,14 @@
 
 t_bool	ft_end_with(char *str, char *end)
 {
-	size_t	strlen;
-	size_t	endlen;
+	int	strlen;
+	int	endlen;
 
-	strlen = ft_strlen(str);
-	endlen = ft_strlen(end);
+	strlen = (int)ft_strlen(str);
+	endlen = (int)ft_strlen(end);
 	if (endlen > strlen)
 		return (FALSE);
-	while (endlen > 0)
+	while (endlen >= 0)
 	{
 		if (str[strlen] != end[endlen])
 			return (FALSE);

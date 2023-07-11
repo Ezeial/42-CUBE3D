@@ -6,7 +6,8 @@ static const char *ERROR_STR[] = {
     "WRONG_ARG_NUMBER",
 	"WRONG_MAP_NAME",
 	"OPEN_ERROR",
-	"MAP_ERROR"
+	"MAP_ERROR",
+    "CREATE_WIN_ERROR"
 };
 
 int ft_error(t_err errtype, t_data *data)
