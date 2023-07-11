@@ -18,6 +18,7 @@
 #define TEXTURE_WIDTH 50
 #define TEXTURE_HEIGHT 50
 #define FLOODFILL_CHAR '.'
+
 //  TYPEDEF
 
 typedef unsigned char t_u1;

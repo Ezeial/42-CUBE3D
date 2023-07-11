@@ -26,6 +26,7 @@ static void ft_destroy_minimap(t_data *data)
 	while (y < data->map.height)
 	{
 		free(data->map.map_data[y]);
+        data->map.map_data[y] = NULL;
 		y++;
 	}
 	free(data->map.map_data);

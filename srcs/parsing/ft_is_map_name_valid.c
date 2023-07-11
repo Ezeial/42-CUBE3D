@@ -1,6 +1,6 @@
 #include "cube3d.h"
 
-t_bool	ft_end_with(char *str, char *end)
+static t_bool	ft_end_with(char *str, char *end)
 {
 	size_t	strlen;
 	size_t	endlen;
