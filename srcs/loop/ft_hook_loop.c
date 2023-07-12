@@ -9,4 +9,4 @@ static int  ft_next_frame(t_data *data)
 void    ft_hook_loop(t_data *data)
 {
     mlx_loop_hook(data->mlx, ft_next_frame, data);
-}
+}       

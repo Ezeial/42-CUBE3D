@@ -11,7 +11,7 @@ int main(int ac, char **av)
         return (ft_error(ret, &data));
     if ((ret = ft_create_window(&data)) != OK)
         return (ft_error(ret, &data));
-    // ft_loop(&data);
+    ft_loop(&data);
     ft_destroy(&data);
     return (0);
 }
